@@ -32,6 +32,17 @@ class Home extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
+                      _launchURL("dealers-guild.work");
+                    },
+                    child: Image.asset(
+                      'assets/www.png',
+                      height: 50,
+                    ),
+                  ),
+                  
+                  
+                  GestureDetector(
+                    onTap: () {
                       //_launchURL("www.facebook.com");
                     },
                     child: Image.asset(
@@ -39,6 +50,7 @@ class Home extends StatelessWidget {
                       height: 50,
                     ),
                   ),
+
                   GestureDetector(
                     onTap: () {
                       Share.share("https://dealers-guild.work");
@@ -69,5 +81,5 @@ class Home extends StatelessWidget {
 
 _launchURL(String url) async {
   //const url = 'https://flutter.dev';
-  await launch('https://' + url, forceWebView: true);
+  await launch(Uri.encodeFull('https://' + url), forceWebView: true);
 }
